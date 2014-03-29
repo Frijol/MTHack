@@ -5,7 +5,9 @@ For Berklee Music Therapy hackathon at Hack/Reduce
 
 Objective:
 Mneumonic device for turning arbitrary text information into the beat and lyrics
-to part of a popular song
+to part of a popular song.
+
+People with Trisomy 21 (Down's Syndrome) have trouble remembering information. Music therapy can aid in memorization of important information.
 
 Steps to MVP:
 
