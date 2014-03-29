@@ -2,7 +2,7 @@ var request = require('request');
 var fs = require('fs');
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Text to Beat' });
 };
 
 exports.process = function(req, res){
