@@ -3,6 +3,8 @@ MTHack
 
 For Berklee Music Therapy hackathon at Hack/Reduce
 
+Live at http://peaceful-atoll-3426.herokuapp.com/
+
 Objective:
 Mneumonic device for turning arbitrary text information into the beat and lyrics
 to part of a popular song.
@@ -18,4 +20,3 @@ Steps to MVP:
 4. beat applied to speech
 5. tune extracted
 6. tune applied to speech
-7. reach: speak into audio module, tune this speech
