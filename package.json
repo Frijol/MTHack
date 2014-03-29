@@ -1,12 +1,27 @@
 {
-  "name": "application-name",
+  "name": "MTHack",
   "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "description": "MTHack",
+  "main": "app.js",
   "dependencies": {
+    "request": "~2.34.0",
+    "player": "~0.1.5",
     "express": "3.4.4",
     "jade": "*"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Frijol/MTHack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frijol/MTHack/issues"
+  },
+  "homepage": "https://github.com/Frijol/MTHack"
 }
