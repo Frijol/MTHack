@@ -3,7 +3,7 @@ MTHack
 
 For Berklee Music Therapy hackathon at Hack/Reduce
 
-Live at http://peaceful-atoll-3426.herokuapp.com/
+Live at [ifoundthemeaningoflife.com/cadence](http://ifoundthemeaningoflife.com/cadence)
 
 Objective:
 Mneumonic device for turning arbitrary text information into the beat and lyrics

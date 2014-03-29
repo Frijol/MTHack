@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #ffe6e6;
+  background: #441100;
 }
 
 a {
@@ -10,11 +10,10 @@ a {
 
 button {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: white;
 }
 
 button:hover {
-  background-color: #e6fffa;
+  opacity: 0.8;
 }
 
 .main-container {
