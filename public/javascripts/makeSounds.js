@@ -35,21 +35,6 @@ var parseAudio = function (mp3, when) {
       source.start(when);
     });
 
-    //
-    //
-    // // Fix up for prefixing
-    // window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    // context = new AudioContext();
-    // oscillator = context.createOscillator();
-    //
-    // oscillator.type = 0; // sine wave
-    // oscillator.frequency.value = 500;
-    // oscillator.connect(context.destination);
-    // oscillator.noteOn && oscillator.noteOn(0);
-    //
-    // setTimeout(function () {
-    //   oscillator.detune.value = 150;
-    // }, 2000);
 
   } catch(e) {
     alert('Web Audio API is not supported in this browser');

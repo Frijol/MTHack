@@ -1,8 +1,24 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ffe6e6;
 }
 
 a {
   color: #00B7FF;
+}
+
+button {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+}
+
+button:hover {
+  background-color: #e6fffa;
+}
+
+.main-container {
+  padding: 10%;
+  border-radius: 15px;
+  background: #ccccff;
 }
