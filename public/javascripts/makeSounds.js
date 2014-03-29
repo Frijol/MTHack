@@ -1,11 +1,19 @@
 $('#submitButton').click(function(){
   $.post('/process', {inputText: $('#inputText')[0].value}, function (res) {
-    var time = 0;
-    for (var i = 0; i < res.length; i++) {
-      mp3 = decode(res[i]);
-      time += getRandomInt(1, 2);
-      parseAudio(mp3, time);
+    var times = [1];
+    var totaltime = 0;
+    for (var i = 1; i < res.length; i++) {
+      times.push(times[i-1] + getRandomInt(1, 2));
+      totaltime += times[i];
     }
+    var count = 0;
+    setInterval (function (){
+      for (var i = 0; i < res.length; i++) {
+        mp3 = decode(res[i]);
+        parseAudio(mp3, count * totaltime + times[i]);
+      };
+      count += 1;
+    }, totaltime * 1000);
   });
 });
 
@@ -13,12 +21,12 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Fix up prefixing
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+
 var parseAudio = function (mp3, when) {
-  var context;
   try {
-    // Fix up prefixing
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    var context = new AudioContext();
     context.decodeAudioData(mp3, function (buffer) {
       var source = context.createBufferSource();
       source.buffer = buffer;
