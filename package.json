@@ -1,14 +1,17 @@
 {
   "name": "MTHack",
-  "version": "0.0.0",
-  "description": "MTHack ======",
+  "version": "0.0.1",
+  "description": "MTHack",
   "main": "app.js",
   "dependencies": {
     "request": "~2.34.0",
-    "player": "~0.1.5"
+    "player": "~0.1.5",
+    "express": "3.4.4",
+    "jade": "*"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
