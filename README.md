@@ -12,6 +12,7 @@ People with Trisomy 21 (Down's Syndrome) have trouble remembering information. M
 Steps to MVP:
 
 1. webapp turns text to speech
+2. pitch adjustable speech
 2. popular song selected
 3. popular song beat extracted
 4. beat applied to speech
