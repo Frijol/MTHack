@@ -18,7 +18,12 @@ button:hover {
 }
 
 .main-container {
-  padding: 10%;
+  padding: 5%;
   border-radius: 15px;
   background: #ccccff;
+}
+
+.editme {
+  text-align: right;
+  color: white;
 }
