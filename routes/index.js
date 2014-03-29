@@ -1,10 +1,12 @@
 var request = require('request');
+var Player = require('player');
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
 exports.process = function(req, res){
+  var buff = [];
   // get text input
   var myText = req.body.inputText;
   // separate out words
@@ -16,11 +18,28 @@ exports.process = function(req, res){
       if (!err && res.statusCode == 200) {
         request(URLofMp3, function (err, res, mp3) {
           if (!err && res.statusCode == 200) {
-            console.log(mp3);
+            buff.push(mp3)
           }
         });
       }
     });
   }
-  res.redirect('/');
+  // wait for buffer to fill
+  var waitLoop = setInterval(function wait () {
+    if (buff.length == myTextArray.length) {
+      clearInterval(waitLoop);
+      console.log('Buffering complete.');
+      playSounds(buff);
+      res.redirect('/');
+    } else {
+      console.log('Buffering...');
+    }
+  }, 100);
+
+  var playSounds = function (buffer) {
+    var player = new Player(buffer[0]);
+    player.play(function(err, player) {
+      console.log('played!');
+    });
+  }
 };
