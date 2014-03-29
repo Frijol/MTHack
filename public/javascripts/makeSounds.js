@@ -1,11 +1,52 @@
 $('#submitButton').click(function(){
   $.post('/process', {inputText: $('#inputText')[0].value}, function (res) {
+    var time = 0;
     for (var i = 0; i < res.length; i++) {
       mp3 = decode(res[i]);
-      parseAudio(mp3);
+      time += getRandomInt(1, 2);
+      parseAudio(mp3, time);
     }
   });
 });
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var parseAudio = function (mp3, when) {
+  var context;
+  try {
+    // Fix up prefixing
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var context = new AudioContext();
+    context.decodeAudioData(mp3, function (buffer) {
+      var source = context.createBufferSource();
+      source.buffer = buffer;
+      source.connect(context.destination);
+      console.log("Telling it to start!", when);
+      source.start(when);
+    });
+
+    //
+    //
+    // // Fix up for prefixing
+    // window.AudioContext = window.AudioContext||window.webkitAudioContext;
+    // context = new AudioContext();
+    // oscillator = context.createOscillator();
+    //
+    // oscillator.type = 0; // sine wave
+    // oscillator.frequency.value = 500;
+    // oscillator.connect(context.destination);
+    // oscillator.noteOn && oscillator.noteOn(0);
+    //
+    // setTimeout(function () {
+    //   oscillator.detune.value = 150;
+    // }, 2000);
+
+  } catch(e) {
+    alert('Web Audio API is not supported in this browser');
+  }
+}
 
 var decode = function(base64) {
   var bufferLength = base64.length * 0.75,
@@ -36,46 +77,3 @@ var decode = function(base64) {
 
   return arraybuffer;
 };
-
-var parseAudio = function (mp3) {
-  var context;
-  try {
-    // Fix up prefixing
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    var context = new AudioContext();
-    context.decodeAudioData(mp3, function (buffer) {
-      var source = context.createBufferSource();
-      source.buffer = buffer;
-      source.connect(context.destination);
-      source.noteOn(0);
-      source.start(0);
-    });
-
-
-    // var playNote = function(whichNote, duration) {
-    //   // whichNote = # notes above major tone
-    //   detuneVal = whichNote * 150;
-    //   setTimeout(function() {
-    //     oscillator.detune.value = detuneVal;
-    //   }, duration);
-    // }
-    //
-    //
-    // // Fix up for prefixing
-    // window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    // context = new AudioContext();
-    // oscillator = context.createOscillator();
-    //
-    // oscillator.type = 0; // sine wave
-    // oscillator.frequency.value = 500;
-    // oscillator.connect(context.destination);
-    // oscillator.noteOn && oscillator.noteOn(0);
-    //
-    // setTimeout(function () {
-    //   oscillator.detune.value = 150;
-    // }, 2000);
-
-  } catch(e) {
-    alert('Web Audio API is not supported in this browser');
-  }
-}
