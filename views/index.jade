@@ -3,8 +3,8 @@ extends layout
 block content
   h1 Text to Pneumonic
 
-  form(action='/process', method='post', id='inputForm')
-    input(type='textarea', id='inputText', name='inputText')
-    button(type='submit', id='submitButton')
+  form(onsubmit = "return false")
+    input(type='textarea', id='inputText')
+    button(id='submitButton')
       | submit
   script(src='/javascripts/makeSounds.js')
