@@ -1,0 +1,24 @@
+{
+  "name": "MTHack",
+  "version": "0.0.0",
+  "description": "MTHack ======",
+  "main": "app.js",
+  "dependencies": {
+    "request": "~2.34.0",
+    "player": "~0.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Frijol/MTHack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frijol/MTHack/issues"
+  },
+  "homepage": "https://github.com/Frijol/MTHack"
+}
