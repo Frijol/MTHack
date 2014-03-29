@@ -1,5 +1,4 @@
 var request = require('request');
-var Player = require('player');
 var fs = require('fs');
 
 exports.index = function(req, res){
@@ -35,11 +34,4 @@ exports.process = function(req, res){
       console.log('Buffering...');
     }
   }, 100);
-
-  // var playSounds = function (buffer) {
-  //   var player = new Player(buffer[0]);
-  //   player.play(function(err, player) {
-  //     console.log('played!');
-  //   });
-  // }
 };
