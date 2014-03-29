@@ -1,5 +1,6 @@
 var request = require('request');
 var Player = require('player');
+var fs = require('fs');
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
@@ -16,9 +17,9 @@ exports.process = function(req, res){
     var myURL = 'http://tts-api.com/tts.mp3?q=' + myTextArray[i] + '&return_url=1';
     request(myURL, function (err, res, URLofMp3) {
       if (!err && res.statusCode == 200) {
-        request(URLofMp3, function (err, res, mp3) {
+        request({url: URLofMp3, encoding:null}, function (err, res, mp3) {
           if (!err && res.statusCode == 200) {
-            buff.push(mp3)
+            buff.push(mp3.toString('base64'));
           }
         });
       }
@@ -26,20 +27,19 @@ exports.process = function(req, res){
   }
   // wait for buffer to fill
   var waitLoop = setInterval(function wait () {
-    if (buff.length == myTextArray.length) {
+    if (buff && buff.length == myTextArray.length) {
       clearInterval(waitLoop);
       console.log('Buffering complete.');
-      playSounds(buff);
-      res.redirect('/');
+      res.send(buff);
     } else {
       console.log('Buffering...');
     }
   }, 100);
 
-  var playSounds = function (buffer) {
-    var player = new Player(buffer[0]);
-    player.play(function(err, player) {
-      console.log('played!');
-    });
-  }
+  // var playSounds = function (buffer) {
+  //   var player = new Player(buffer[0]);
+  //   player.play(function(err, player) {
+  //     console.log('played!');
+  //   });
+  // }
 };

@@ -4,7 +4,7 @@ block content
   h1 Text to Pneumonic
 
   form(onsubmit = "return false")
-    input(type='textarea', id='inputText')
-    button(id='submitButton')
+    input(type='textarea', id='inputText', name='inputText')
+    button(type='submit', id='submitButton')
       | submit
   script(src='/javascripts/makeSounds.js')
