@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Text to Pneumonic
+
+  form(action='/process',method='post')
+    input(type='textarea')
+    button(type='submit')
+      | submit
