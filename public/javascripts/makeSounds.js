@@ -1,3 +1,38 @@
+// takes a string myText, callback operates on array of 1 mp3 per word
+var processInput = function (myText, callback) {
+  // predef buffer for mp3 files
+  var buff = [];
+  // separate out words
+  var myTextArray = myText.split(' ');
+  // get mp3 of each word separately
+  // for (var i = 0; i < myTextArray.length; i++) {
+  //   var myURL = 'http://tts-api.com/tts.mp3?q=' + myTextArray[i] + '&return_url=1';
+  //   request(myURL, function (err, res, URLofMp3) {
+  //     if (!err && res.statusCode == 200) {
+  //       request(URLofMp3, function (err, res, mp3) {
+  //         if (!err && res.statusCode == 200) {
+  //           buff.push(mp3)
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
+  // // wait for buffer to fill
+  // var waitLoop = setInterval(function wait () {
+  //   if (buff.length == myTextArray.length) {
+  //     clearInterval(waitLoop);
+  //     console.log('Buffering complete.');
+  //     callback && callback(buff);
+  //   } else {
+  //     console.log('Buffering...');
+  //   }
+  // }, 100);
+}
+
+$('#submitButton').click(function(){
+  console.log($('#inputText')[0].value)
+})
+
 var context;
 window.addEventListener('load', init, false);
 function init() {
@@ -46,6 +81,14 @@ function init() {
     //   }
     //   return xhr;
     // }
+
+    var playNote = function(whichNote, duration) {
+      // whichNote = # notes above major tone
+      detuneVal = whichNote * 150;
+      setTimeout(function() {
+        oscillator.detune.value = detuneVal;
+      }, duration);
+    }
 
 
     // Fix up for prefixing
