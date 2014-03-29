@@ -3,6 +3,6 @@ exports.index = function(req, res){
 };
 
 exports.process = function(req, res){
-  console.log(req);
+  console.log(req.body);
   res.redirect('/')
 };
