@@ -11,12 +11,7 @@ to part of a popular song.
 
 People with Trisomy 21 (Down's Syndrome) have trouble remembering information. Music therapy can aid in memorization of important information.
 
-Steps to MVP:
-
 1. webapp turns text to speech
-2. pitch adjustable speech
-2. popular song selected
-3. popular song beat extracted
-4. beat applied to speech
-5. tune extracted
-6. tune applied to speech
+1. random spacing generated between words to create a cadence
+2. words spoken aloud to a cadence
+3. repeat ad infinitum so processing moves from aural loop to musical memory
